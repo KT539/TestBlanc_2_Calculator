@@ -7,19 +7,19 @@ class MathRequest:
         self.res = None
 
     def get_ope1(self):
-        raise NotImplementedError
+        return self.ope1
 
     def get_operator(self):
-        raise NotImplementedError
+        return self.operator
 
     def get_ope2(self):
-        raise NotImplementedError
+        return self.ope2
 
     def get_res(self):
-        raise NotImplementedError
+        return self.res
 
     def set_res(self, value):
-        raise NotImplementedError
+        self.res = value
 
     def to_string(self):
-        raise NotImplementedError
+        return f"{self.ope1} {self.operator} {self.ope2} {"="} {self.res}"
