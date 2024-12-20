@@ -12,19 +12,25 @@ class MathLib:
             case 'sub':
                 math_request.set_res(ope1 - ope2)
             case 'mul':
-                raise NotImplementedError
+                math_request.set_res(ope1 * ope2)
             case 'div':
-                raise NotImplementedError
+                if ope2 == 0:
+                    raise MathLibException ("ope2 cannot be zero")
+                else:
+                    math_request.set_res(ope1 / ope2)
             case 'pow':
-                raise NotImplementedError
+                math_request.set_res(ope1 ** ope2)
             case 'root':
-                raise NotImplementedError
+                math_request.set_res(cls.__root(ope1, ope2))
             case _:
-                raise NotImplementedError
+                raise OperatorNotSupportedException ("Operator not supported")
 
     @staticmethod
     def __root(ope1, ope2):
-        raise NotImplementedError
+        if ope2 == 0:
+            raise MathLibException ("ope2 cannot be zero")
+        else:
+            return round(ope1 ** (1 / ope2), 2)
 
 class MathLibException(Exception):
     pass
